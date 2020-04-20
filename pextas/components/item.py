@@ -11,6 +11,7 @@ class Item(ItemInterface):
     def __int__(self, config):
         self.__config = config
 
+    @property
     def config(self):
         return self.__config
 
