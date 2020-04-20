@@ -10,9 +10,10 @@ if my_item == my_item2:
 else:
     print('Is ok')
 
+print('iter:\n')
 for i in my_item:
     print(i)
 
-print(my_item.to_dict())
+print('to dict:\n' + my_item.to_dict())
 
-print(my_item.json_encode())
+print('json:\n' + my_item.json_encode())
