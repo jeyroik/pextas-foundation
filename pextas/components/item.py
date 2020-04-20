@@ -1,4 +1,4 @@
-from ..interfaces.item_interface import ItemInterface
+from pextas import ItemInterface
 import json
 
 class Item(ItemInterface):
@@ -9,11 +9,7 @@ class Item(ItemInterface):
     __is_allow_stage_to_json = False
 
     def __int__(self, config):
-        self.__config = config
-
-    @property
-    def config(self):
-        return self.__config
+        self.config = config
 
     def __dict__(self) -> dict:
         return self.config
@@ -27,11 +23,11 @@ class Item(ItemInterface):
         return self.__trigger_stage('to.int', result) if self.__is_allow_stage_to_int else result
 
     def __json__(self) -> str:
-        data = self.__config
+        data = self.config
         return json.dumps(self.__trigger_stage('to.json', data)) if self.__is_allow_stage_to_json else json.dumps(data)
 
     def __eq__(self, other):
-        attrs = self.__config
+        attrs = self.config
         attrs_other = other.config
         if len(attrs) != len(attrs_other):
             return False
