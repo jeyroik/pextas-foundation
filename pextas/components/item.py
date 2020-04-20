@@ -1,4 +1,4 @@
-from pextas import ItemInterface
+from ..interfaces.item_interface import ItemInterface
 import json
 
 class Item(ItemInterface):
