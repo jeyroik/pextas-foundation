@@ -9,10 +9,10 @@ class Item(ItemInterface):
     __is_allow_stage_to_json = False
 
     def __int__(self, config):
-        self.config = args
+        self.config = config
 
     def __dict__(self) -> dict:
-        return self.args
+        return self.config
 
     def __str__(self):
         result = ''
@@ -23,12 +23,12 @@ class Item(ItemInterface):
         return self.__trigger_stage('to.int', result) if self.__is_allow_stage_to_int else result
 
     def __json__(self) -> str:
-        data = self.args
+        data = self.config
         return json.dumps(self.__trigger_stage('to.json', data)) if self.__is_allow_stage_to_json else json.dumps(data)
 
     def __eq__(self, other):
-        attrs = self.args
-        attrs_other = other.args
+        attrs = self.config
+        attrs_other = other.config
         if len(attrs) != len(attrs_other):
             return False
 
