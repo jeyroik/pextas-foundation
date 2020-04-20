@@ -8,7 +8,7 @@ class Item(ItemInterface):
     __is_allow_stage_to_dict = False
     __is_allow_stage_to_json = False
 
-    def __int__(self, config):
+    def __init__(self, config):
         self.config = config
 
     def __dict__(self) -> dict:
