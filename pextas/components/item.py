@@ -2,16 +2,16 @@ from ..interfaces.item_interface import ItemInterface
 import json
 
 class Item(ItemInterface):
-    __is_allow_stage_created = False
-    __is_allow_stage_to_str = False
-    __is_allow_stage_to_int = False
-    __is_allow_stage_to_dict = False
-    __is_allow_stage_to_json = False
 
     def __init__(self, config):
         self.config = config
+        self.__is_allow_stage_created = False
+        self.__is_allow_stage_to_str = False
+        self.__is_allow_stage_to_int = False
+        self.__is_allow_stage_to_dict = False
+        self.__is_allow_stage_to_json = False
 
-    def __dict__(self) -> dict:
+    def to_dict(self):
         return self.config
 
     def __str__(self):
@@ -22,7 +22,11 @@ class Item(ItemInterface):
         result = 0
         return self.__trigger_stage('to.int', result) if self.__is_allow_stage_to_int else result
 
-    def __json__(self) -> str:
+    def __iter__(self):
+        for i in self.config:
+            yield i
+
+    def json_encode(self) -> str:
         data = self.config
         return json.dumps(self.__trigger_stage('to.json', data)) if self.__is_allow_stage_to_json else json.dumps(data)
 

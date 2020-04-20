@@ -1,14 +1,13 @@
-from abc import ABCMeta, abstractmethod
+from abc import ABC, abstractmethod
 
-class ItemInterface(object):
-    __metaclass__ = ABCMeta
+class ItemInterface(ABC):
 
     @abstractmethod
     def __init__(self, config):
         pass
 
     @abstractmethod
-    def __dict__(self):
+    def to_dict(self):
         pass
 
     @abstractmethod
@@ -25,6 +24,10 @@ class ItemInterface(object):
 
     @abstractmethod
     def __eq__(self, other):
+        pass
+
+    @abstractmethod
+    def __iter__(self):
         pass
 
     @abstractmethod
