@@ -50,8 +50,7 @@ class Item(ItemInterface):
 
         return equal
 
-
-    def __created(self):
+    def created(self):
         if self.__is_allow_stage_created:
             self.__trigger_stage_to('created')
 

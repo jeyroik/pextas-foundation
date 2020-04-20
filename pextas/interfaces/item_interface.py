@@ -19,7 +19,7 @@ class ItemInterface(ABC):
         pass
 
     @abstractmethod
-    def __json__(self):
+    def json_encode(self):
         pass
 
     @abstractmethod
@@ -31,5 +31,5 @@ class ItemInterface(ABC):
         pass
 
     @abstractmethod
-    def __created(self):
+    def created(self):
         pass
