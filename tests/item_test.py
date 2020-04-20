@@ -14,6 +14,7 @@ print('iter:\n')
 for i in my_item:
     print(i)
 
-print('to dict:\n' + my_item.to_dict())
+print('to dict:\n');
+print(my_item.to_dict())
 
 print('json:\n' + my_item.json_encode())
