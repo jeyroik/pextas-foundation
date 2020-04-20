@@ -2,11 +2,11 @@ from ..interfaces.item_interface import ItemInterface
 import json
 
 class Item(ItemInterface):
-    __is_allow_stage_created = false
-    __is_allow_stage_to_str = false
-    __is_allow_stage_to_int = false
-    __is_allow_stage_to_dict = false
-    __is_allow_stage_to_json = false
+    __is_allow_stage_created = False
+    __is_allow_stage_to_str = False
+    __is_allow_stage_to_int = False
+    __is_allow_stage_to_dict = False
+    __is_allow_stage_to_json = False
 
     def __int__(self, config):
         self.config = args
@@ -30,18 +30,18 @@ class Item(ItemInterface):
         attrs = self.args
         attrs_other = other.args
         if len(attrs) != len(attrs_other):
-            return false
+            return False
 
         attrs_keys = attrs.keys()
 
-        equal = true
+        equal = True
         for key in attrs_keys:
             if key in attrs_other:
                 if attrs_other[key] != attrs[key]:
-                    equal = false
+                    equal = False
                     break
             else:
-                equal = false
+                equal = False
                 break
 
         return equal
